@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333; /* Default background color */
+    color: #fff; /* Default text color */
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .navbar.dark-mode {
+    background-color: #111; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+  }
+  
+  .left {
+    font-size: 24px;
+  }
+  
+  .right button {
+    background-color: #555; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .right button:hover {
+    background-color: #777; /* Hover background color */
+  }
+  
