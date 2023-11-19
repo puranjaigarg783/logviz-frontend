@@ -118,3 +118,24 @@ h1{
   justify-content: center;
   align-items: center;
 }
+
+
+.b-error.active {
+  background-color: red;
+}
+
+.b-warn.active {
+  background-color: #FFA500;
+}
+
+.b-debug.active {
+  background-color: #546A7B;
+}
+
+.b-info.active {
+  background-color: blue;
+}
+
+.b-daily.active {
+  background-color: black;
+}

@@ -13,6 +13,8 @@ import {
   Legend,
 } from "recharts";
 
+
+
 function CountDate() {
   const [data, setData] = useState([]);
   const [viewType, setViewType] = useState("day");
@@ -23,6 +25,16 @@ function CountDate() {
     max: 0,
   });
   const [activeButton, setActiveButton] = useState("day"); // To track the active button
+  const [activeLogLevel, setActiveLogLevel] = useState(null)
+  const getBarColor = () => {
+    if (activeButton === "day") return "#8884d8"; // default color for "day" view
+    if (activeButton === "hour") return "#82ca9d"; // example color for "hour" view
+    if (activeButton === "hour&logLevel=INFO") return "#3498DB"; // Blue for INFO
+    if (activeButton === "hour&logLevel=ERROR") return "#ff0000"; // Red for ERROR
+    if (activeButton === "hour&logLevel=WARN") return "#FFA500"; // Orange for WARN
+    if (activeButton === "hour&logLevel=DEBUG") return "#2ECC71"; // Green for DEBUG
+    return "#8884d8"; // default color if none of the above
+  };
 
   useEffect(() => {
     // Fetch data from the API based on selected options
@@ -54,6 +66,7 @@ function CountDate() {
   async function changeViewType(viewType) {
     setViewType(viewType);
     setActiveButton(viewType); // Set the active button
+    setActiveLogLevel(viewType); // Set the active log level
   }
 
   return (
@@ -72,7 +85,7 @@ function CountDate() {
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend />
-        <Bar dataKey="count" fill="#8884d8" name="Date" />
+        <Bar dataKey="count" fill={getBarColor()} name="Date" />
       </BarChart>
       </div>
       <div className="testMain">
@@ -99,7 +112,7 @@ function CountDate() {
       <div className="toggles">
       <div>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-daily ${
             activeButton === "day" ? "active" : ""
           }`}
           onClick={() => changeViewType("day")}
@@ -107,7 +120,7 @@ function CountDate() {
           Daily
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-daily ${
             activeButton === "hour" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour")}
@@ -117,7 +130,7 @@ function CountDate() {
       </div>
       <div>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-info ${
             activeButton === "hour&logLevel=INFO" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=INFO")}
@@ -125,7 +138,7 @@ function CountDate() {
           INFO
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-error ${
             activeButton === "hour&logLevel=ERROR" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=ERROR")}
@@ -133,7 +146,7 @@ function CountDate() {
           ERROR
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-warn ${
             activeButton === "hour&logLevel=WARN" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=WARN")}
@@ -141,7 +154,7 @@ function CountDate() {
           WARN
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-debug ${
             activeButton === "hour&logLevel=DEBUG" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=DEBUG")}
@@ -153,6 +166,7 @@ function CountDate() {
     </div>
   );
 }
+
 
 export default CountDate;
 

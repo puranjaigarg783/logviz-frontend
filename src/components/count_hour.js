@@ -22,6 +22,16 @@ function CountHour() {
   });
   const [activeButton, setActiveButton] = useState("day"); // To track the active button
 
+  const getBarColor = () => {
+    if (activeButton === "day") return "#8884d8"; // default color for "day" view
+    if (activeButton === "hour") return "#82ca9d"; // example color for "hour" view
+    if (activeButton === "hour&logLevel=INFO") return "#3498DB"; // Blue for INFO
+    if (activeButton === "hour&logLevel=ERROR") return "#ff0000"; // Red for ERROR
+    if (activeButton === "hour&logLevel=WARN") return "#FFA500"; // Orange for WARN
+    if (activeButton === "hour&logLevel=DEBUG") return "#2ECC71"; // Green for DEBUG
+    return "#8884d8"; // default color if none of the above
+  };
+
 
   useEffect(() => {
     // Fetch data from the API based on selected options
@@ -67,7 +77,7 @@ function CountHour() {
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="avgMessageLength" stroke="#8884d8" name="Log level" />
+        <Line type="monotone" dataKey="avgMessageLength" stroke={getBarColor()} name="Log level" />
       </LineChart>
       </div>
       <div className="testMain">
@@ -94,7 +104,7 @@ function CountHour() {
 <div className="toggles">
       <div>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-daily ${
             activeButton === "day" ? "active" : ""
           }`}
           onClick={() => changeViewType("day")}
@@ -102,7 +112,7 @@ function CountHour() {
           Daily
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-daily ${
             activeButton === "hour" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour")}
@@ -112,7 +122,7 @@ function CountHour() {
       </div>
       <div>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-info ${
             activeButton === "hour&logLevel=INFO" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=INFO")}
@@ -120,7 +130,7 @@ function CountHour() {
           INFO
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-error ${
             activeButton === "hour&logLevel=ERROR" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=ERROR")}
@@ -128,7 +138,7 @@ function CountHour() {
           ERROR
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-warn ${
             activeButton === "hour&logLevel=WARN" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=WARN")}
@@ -136,7 +146,7 @@ function CountHour() {
           WARN
         </button>
         <button
-          className={`toggle-button ${
+          className={`toggle-button b-debug ${
             activeButton === "hour&logLevel=DEBUG" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=DEBUG")}
