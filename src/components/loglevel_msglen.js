@@ -119,7 +119,7 @@ function LogLevel() {
             Daily
           </button>
           <button
-            className={`toggle-button b-daily${
+            className={`toggle-button b-daily ${
               activeButton === "hour" ? "active" : ""
             }`}
             onClick={() => changeViewType("hour")}
@@ -129,7 +129,7 @@ function LogLevel() {
         </div>
         <div>
           <button
-            className={`toggle-button b-info${
+            className={`toggle-button b-info ${
               activeButton === "hour&logLevel=INFO" ? "active" : ""
             }`}
             onClick={() => changeViewType("hour&logLevel=INFO")}
@@ -137,7 +137,7 @@ function LogLevel() {
             INFO
           </button>
           <button
-            className={`toggle-button b-error${
+            className={`toggle-button b-error ${
               activeButton === "hour&logLevel=ERROR" ? "active" : ""
             }`}
             onClick={() => changeViewType("hour&logLevel=ERROR")}
@@ -145,7 +145,7 @@ function LogLevel() {
             ERROR
           </button>
           <button
-          className={`toggle-button b-warn${
+          className={`toggle-button b-warn ${
             activeButton === "hour&logLevel=WARN" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=WARN")}
@@ -153,7 +153,7 @@ function LogLevel() {
           WARN
         </button>
         <button
-          className={`toggle-button b-debug${
+          className={`toggle-button b-debug ${
             activeButton === "hour&logLevel=DEBUG" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=DEBUG")}

@@ -136,7 +136,7 @@ function LogLevelCount() {
             ERROR
           </button>
           <button
-          className={`toggle-button b-warn${
+          className={`toggle-button b-warn ${
             activeButton === "hour&logLevel=WARN" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=WARN")}
@@ -144,7 +144,7 @@ function LogLevelCount() {
           WARN
         </button>
         <button
-          className={`toggle-button b-debug${
+          className={`toggle-button b-debug ${
             activeButton === "hour&logLevel=DEBUG" ? "active" : ""
           }`}
           onClick={() => changeViewType("hour&logLevel=DEBUG")}
