@@ -142,6 +142,14 @@ function DateMsgLength() {
         >
           WARN
         </button>
+        <button
+          className={`toggle-button ${
+            activeButton === "hour&logLevel=DEBUG" ? "active" : ""
+          }`}
+          onClick={() => changeViewType("hour&logLevel=DEBUG")}
+        >
+          DEBUG
+        </button>
         </div>
       </div>
     </div>
