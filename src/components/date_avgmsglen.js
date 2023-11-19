@@ -29,7 +29,7 @@ function DateMsgLength() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:10300/data-service/api/v1/logviz/getLogAggregates?granularity=${viewType}`
+          `http://18.219.252.117:10300/data-service/api/v1/logviz/getLogAggregates?granularity=${viewType}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -134,6 +134,14 @@ function DateMsgLength() {
           >
             ERROR
           </button>
+          <button
+          className={`toggle-button ${
+            activeButton === "hour&logLevel=WARN" ? "active" : ""
+          }`}
+          onClick={() => changeViewType("hour&logLevel=WARN")}
+        >
+          WARN
+        </button>
         </div>
       </div>
     </div>

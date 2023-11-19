@@ -12,7 +12,9 @@ const NavBar = () => {
   return (
     <nav className={`navbar ${darkMode ? 'dark-mode' : ''}`}>
       <div className="left">
-        <span>Dashboard</span>
+        <img className="logo" src="./Logviz-logo.png" alt='logviz logo'></img>
+        <span>LogViz</span>
+
       </div>
 
     </nav>

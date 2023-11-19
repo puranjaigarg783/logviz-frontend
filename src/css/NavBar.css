@@ -29,3 +29,7 @@
     background-color: #777; /* Hover background color */
   }
   
+  .logo {
+    width: 50px;  /* or any other fixed width */
+    height: 50px; /* or any other fixed height */
+  }

@@ -31,7 +31,7 @@ body{
   justify-content: space-around;
 }
 .toggles{
-  justify-content: space-between;
+  justify-content: center;
 
 }
 
@@ -39,6 +39,11 @@ h1{
   font-family: 'Urbanist', sans-serif;
   font-size: 1.2rem;
 
+}
+
+.testMain {
+  display: flex;
+  justify-content: center;
 }
 
 
